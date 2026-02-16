@@ -230,12 +230,26 @@ footer {
 
 /* 超豪華（赤枠スーパーチャット風） */
 .chat-super {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: #fff;
-  font-weight: bolder;
-  border: 3px solid #b91c1c;
-  box-shadow: 0 0 6px #ef4444;
+  background: linear-gradient(135deg, #ff004c, #ff4500);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 12px 0;
+  font-size: 1rem;
+  box-shadow: 0 0 20px rgba(255, 0, 76, 0.8);
+  animation: superGlow 1.5s infinite alternate;
 }
+
+@keyframes superGlow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 0, 76, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 0, 76, 1);
+  }
+}
+
 
 .user {
   color: #38bdf8;
@@ -298,3 +312,4 @@ footer {
 .chat-modal-close:hover {
   color: #f87171;
 }
+
