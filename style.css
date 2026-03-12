@@ -8,16 +8,29 @@ body {
   background: linear-gradient(180deg, #0f172a, #020617);
   color: #e5e7eb;
 }
+@media (max-width: 768px) {
+  .title-icon {
+    width: 64px;
+    height: 64px;
+    margin-left: 10px;
+    border-radius: 50%;
+    image-rendering: pixelated;
+  }
+
+}
+
 
 .container {
-  max-width: 720px;
+  width: 720px;
   margin: 0 auto;
   padding: 24px;
 }
 
 .card {
   background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
+  border: 2px solid rgba(255, 0, 255, 0.1);
   padding: 24px;
   margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -142,6 +155,7 @@ footer {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 6;
 }
 
 .live {
@@ -150,7 +164,73 @@ footer {
   padding: 4px 8px;
   font-size: 0.75rem;
   border-radius: 6px;
+  animation: blink 1s infinite;
 }
+
+@keyframes blink {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.demolive{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: black;
+  overflow: hidden;
+}
+
+/* demolive コメント全体 */
+#streamComments{
+  position:absolute;
+  bottom:25%;
+  left:18%;
+  width:50%;
+
+  display:flex;
+  flex-direction:column;
+
+  z-index: 5;
+}
+
+/* コメント本体 */
+#streamComments p{
+  position:relative;
+  background:#ffffff;
+  color:#555;
+  padding:1px 14px;
+  border-radius:30px;
+  font-family:"Kosugi Maru","M PLUS Rounded 1c",sans-serif;
+  font-size:11px;
+  max-width:100%;
+  line-height:1.4;
+  margin: 7px;
+
+  /* 雲っぽい柔らかい影 */
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.5),
+    0 0 6px rgba(255,255,255,0.8);
+}
+#streamComments p::after{
+  content:"";
+
+  position:absolute;
+
+  left:-6px;
+  bottom:10px;
+
+  width:12px;
+  height:12px;
+
+  background:white;
+
+  border-radius:50%;
+
+  box-shadow:
+    -6px 4px 0 white;
+}
+
 
 .stream-character {
   width: 100%;
@@ -199,62 +279,152 @@ footer {
 .chat-messages p {
   margin: 6px 0;
 }
-/* 金額別チャット見た目 */
-/*
-.chat-small {
-  color: #38bdf8;
-  font-size: 0.8rem;
-}
 
-.chat-medium {
-  color: #facc15;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.chat-large {
-  color: #ef4444;
-  font-weight: bolder;
-  font-size: 1.1rem;
-  text-shadow: 0 0 4px #ef4444;
-}
-*/
 
 /* 中程度の豪華さ */
-.chat-premium {
-  background: linear-gradient(135deg, #facc15, #fbbf24);
-  color: #020617;
-  font-weight: bold;
-  border: 2px solid #f59e0b;
+.chat-blue {
+  --main-color: #002aff;
+  --sub-color: #aaaaff;
+  --border-size: 2px;
 }
 
-/* 超豪華（赤枠スーパーチャット風） */
-.chat-super {
-  background: linear-gradient(135deg, #ff004c, #ff4500);
+/* ネオン枠 */
+.chat-tier {
+  display: inline-block;
+  position: relative;
+  position: relative;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 14px;
   color: white;
   font-weight: bold;
-  padding: 12px;
-  border-radius: 12px;
-  margin: 12px 0;
-  font-size: 1rem;
-  box-shadow: 0 0 20px rgba(255, 0, 76, 0.8);
-  animation: superGlow 1.5s infinite alternate;
 }
 
-@keyframes superGlow {
+
+.chat-red {
+  --main-color: #ff2a6d;
+  --sub-color: #8a2be2;
+  --border-size: 3px;
+
+  --run-animation: runLine 2.5s linear infinite;
+
+}
+
+.chat-ultimate {
+  overflow: hidden; /* 光はみ出し防止 */
+  --main-color: #00ffff;
+  --sub-color: #ff00ff;
+  --border-size: 4px;
+
+  animation: hueShift 1s linear infinite;
+}
+
+
+.chat-tier::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: var(--border-size, 4px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255,255,255,0.3) 48%,
+      var(--main-color) 50%,
+      rgba(255,255,255,0.3) 52%,
+      transparent 60%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      var(--main-color),
+      var(--sub-color)
+    );
+
+  background-size: 200% 100%, 100% 100%;
+  background-repeat: no-repeat;
+
+  animation: var(--run-animation, none);
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  filter:
+    drop-shadow(0 0 8px var(--main-color))
+    drop-shadow(0 0 18px var(--main-color));
+}
+
+.chat-tier.chat-ultimate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255,255,255,0.2) 45%,
+    rgba(255,255,255,0.9) 50%,
+    rgba(255,255,255,0.2) 55%,
+    transparent 60%,
+    transparent 100%
+  );
+
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+
+  animation: runUltimate 4s linear infinite;
+}
+.chat-tier.chat-ultimate > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes runUltimate {
+  0%   { background-position: 120% 0; }
+  20%  { background-position: -20% 0; }
+  100% { background-position: -20% 0; }
+}
+
+@keyframes hueShift {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
+}
+
+
+@keyframes runLine {
   from {
-    box-shadow: 0 0 10px rgba(255, 0, 76, 0.5);
+    background-position: 200% 0, 0 0;
   }
   to {
-    box-shadow: 0 0 30px rgba(255, 0, 76, 1);
+    background-position: -200% 0, 0 0;
   }
 }
 
-
 .user {
-  color: #38bdf8;
   margin-right: 4px;
+  color : #38bdf8;
 }
+
+.chat-tier .user {
+  background: linear-gradient(
+    90deg,
+    var(--main-color),
+    var(--sub-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 
 .chat-footer {
   padding: 8px;
@@ -275,12 +445,12 @@ footer {
 .chat-modal {
   display: none; /* ←最初は非表示 */
   position: fixed;
-  z-index: 100;
+  z-index: 999999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
 }
@@ -289,13 +459,23 @@ footer {
 /* モーダル内コンテンツ */
 .chat-modal-content {
   position: relative; /* closeボタン用 */
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,0,0.8);
   padding: 20px 30px;
   border-radius: 12px;
   color: #f1f5f9;
-  max-width: 400px;
-  text-align: center;
+  max-width: 600px;
+  /*text-align: center;*/
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.chat-modal-content h2{
+  text-align: center;
+}
+.chat-modal-content button{
+  margin: 10px auto;
+}
+p.center{
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* 閉じるボタン */
@@ -312,4 +492,3 @@ footer {
 .chat-modal-close:hover {
   color: #f87171;
 }
-
