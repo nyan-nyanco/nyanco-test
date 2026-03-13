@@ -72,17 +72,29 @@ sendBtn?.addEventListener("click", async () => {
   const amountStr = amountEl?.value.trim();
 
   // バリデーション
-  if (!message) {
-    alert("Please enter a message.");
-    return;
-  }
-
-  if (!amountStr) {
-    alert("Please enter an amount of NYANCO.");
-    return;
-  }
-
   const amount = Number(amountStr);
+
+  // 1. 数値チェック
+  if (Number.isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid NYANCO amount.");
+    return;
+  }
+
+  // 2. 金額に応じた文字数制限の計算 (例: 100 NYANCO = 10文字, 1000 NYANCO = 100文字)
+  // ここでは「金額の10%」を最大文字数とする例にしています
+  const maxChars = Math.floor(amount * 0.1); 
+  const currentLength = message.length;
+
+  if (amount < 100) {
+    alert("Minimum NYANCO amount is 100.");
+    return;
+  }
+
+  // 3. 文字数オーバーのチェック
+  if (currentLength > maxChars) {
+    alert(`Too long! For ${amount} NYANCO, the limit is ${maxChars} characters. (Current: ${currentLength})`);
+    return;
+  }
 
   // 数値チェック（isNaN よりも詳細にチェック）
   if (Number.isNaN(amount) || amount <= 0) {
