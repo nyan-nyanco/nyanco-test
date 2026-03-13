@@ -1,7 +1,7 @@
   const link = document.querySelector(".chat-help-link");
   const modal = document.querySelector(".chat-modal");
   const close = document.querySelector(".chat-modal-close");
-  const form = document.querySelector(".chat-form");
+  const form = document.querySelector("#chat-form");
 
   // 初期値は非表示
   modal.style.display = "none";
