@@ -89,6 +89,11 @@ sendBtn?.addEventListener("click", async () => {
     alert("Minimum NYANCO amount is 100.");
     return;
   }
+  
+  if (name.length > 20) {
+    alert("Name is too long! (Max 20 chars)");
+    return;
+  }
 
   // 3. 文字数オーバーのチェック
   if (currentLength > maxChars) {
