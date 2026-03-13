@@ -82,22 +82,6 @@ document.getElementById("send-chat").addEventListener("click", async () => {
     alert("Minimum NYANCO amount is 100.");
     return;
   }
-   // amountに応じて文字数上限を返す関数
-function getMaxChars(amount) {
-  if (amount < 1000) return 100;
-  else if (amount < 5000) return 300;
-  else if (amount < 10000) return 500;
-  else return Infinity; // 10000以上は制限なし
-}
-
-// send-chatイベント内
-const amount = Number(amountStr);
-const maxChars = getMaxChars(amount);
-
-if (message.length > maxChars) {
-  alert(`Your message is too long! Maximum ${maxChars} characters for ${amount} NYANCO.`);
-  return;
-}
 
   // Discord送信用メッセージ
   const content = `
