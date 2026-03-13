@@ -107,6 +107,4 @@ Amount: ${amount} NYANCO
   } catch (err) {
     console.error("Failed to send chat:", err);
     alert("Failed to send chat.");
-  }
-
-});
+  };
