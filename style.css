@@ -497,6 +497,7 @@ p.center{
   flex-direction:column;
   gap:10px;
   margin-top:20px;
+  background:red;
 }
 
 input.chat-form,
@@ -520,6 +521,7 @@ button.chat-form{
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
