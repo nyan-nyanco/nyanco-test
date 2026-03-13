@@ -118,5 +118,3 @@ Amount: ${amount} NYANCO
   }
 
 });
-  alert("Chat sent!");
-});
