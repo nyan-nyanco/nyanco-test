@@ -147,6 +147,19 @@ Connect Phantom
   </p>
   </div>
   </div>
+  
+  <div id="chat-form" style="display:none;">
+
+  <input id="chat-name" placeholder="Name">
+
+  <textarea id="chat-message" placeholder="Your message"></textarea>
+
+  <input id="chat-amount" placeholder="NYANCO amount">
+
+  <button id="send-chat">Send Chat</button>
+
+</div>
+  
 </body>
 <script>
   const link = document.querySelector(".chat-help-link");
@@ -202,6 +215,8 @@ Connect Phantom
 document
   .getElementById("connect-wallet")
   .addEventListener("click", connectWallet);
+document.getElementById("chat-form").style.display = "block";
 </script>
 
 </html>
+
