@@ -109,4 +109,4 @@ Amount: ${amount} NYANCO
     alert("Failed to send chat.");
   }
 
-});
+};
