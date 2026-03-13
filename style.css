@@ -501,6 +501,7 @@ p.center{
 
 input.chat-form,
 textarea.chat-form{
+  width:100%;
   padding:10px;
   border-radius:8px;
   border:1px solid #ccc;
@@ -518,6 +519,7 @@ button.chat-form{
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
