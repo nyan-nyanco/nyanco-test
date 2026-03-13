@@ -501,7 +501,7 @@ p.center{
 
 #chat-name,
 #chat-message,
-#chat-ammount{
+#chat-amount{
   width:100%;
   color:white;
   padding:10px;
@@ -521,6 +521,7 @@ p.center{
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
