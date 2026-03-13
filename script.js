@@ -1,9 +1,11 @@
-const link = document.querySelector(".chat-help-link");
+  const link = document.querySelector(".chat-help-link");
   const modal = document.querySelector(".chat-modal");
   const close = document.querySelector(".chat-modal-close");
+  const form = document.querySelector(".chat-form");
 
   // 初期値は非表示
   modal.style.display = "none";
+  form.style.display = "none";
 
   // クリックで開く
   link.addEventListener("click", () => {
@@ -13,11 +15,12 @@ const link = document.querySelector(".chat-help-link");
   // ×ボタンで閉じる
   close.addEventListener("click", () => {
     modal.style.display = "none";
+    form.style.display = "none";
   });
 
   // 背景クリックで閉じる
   modal.addEventListener("click", (e) => {
-    if(e.target === modal) modal.style.display = "none";
+    if(e.target === modal) modal.style.display = "none"; form.style.display = "none";
   });
 
 
@@ -38,7 +41,7 @@ const link = document.querySelector(".chat-help-link");
 
       document.getElementById("connect-wallet").innerText =
         wallet.slice(0,4) + "..." + wallet.slice(-4);
-      document.getElementById("chat-form").style.display = "flex";
+      form.style.display = "flex";
 
     } catch (err) {
       console.log("User rejected connection");
