@@ -499,25 +499,26 @@ p.center{
   margin-top:20px;
 }
 
-.chat-form input,
-.chat-form textarea{
+input.chat-form,
+textarea.chat-form{
   padding:10px;
   border-radius:8px;
   border:1px solid #ccc;
   font-size:14px;
 }
 
-.chat-form textarea{
+textarea.chat-form{
   resize:vertical;
   min-height:80px;
 }
 
-.chat-form button{
+button.chat-form{
   padding:10px;
   border:none;
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
