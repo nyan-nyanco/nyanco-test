@@ -5,7 +5,7 @@
 
   // 初期値は非表示
   modal.style.display = "none";
- 
+  form.style.display = "none";
 
   // クリックで開く
   link.addEventListener("click", () => {
@@ -20,8 +20,11 @@
 
   // 背景クリックで閉じる
   modal.addEventListener("click", (e) => {
-    if(e.target === modal) modal.style.display = "none"; form.style.display = "none";
-  });
+  if (e.target === modal) {
+    modal.style.display = "none";
+    form.style.display = "none";
+  }
+});
 
 
 
