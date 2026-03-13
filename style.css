@@ -492,31 +492,32 @@ p.center{
 .chat-modal-close:hover {
   color: #f87171;
 }
-#chat-form{
+.chat-form{
   display:none;
   flex-direction:column;
   gap:10px;
   margin-top:20px;
 }
 
-#chat-form input,
-#chat-form textarea{
+.chat-form input,
+.chat-form textarea{
   padding:10px;
   border-radius:8px;
   border:1px solid #ccc;
   font-size:14px;
 }
 
-#chat-form textarea{
+.chat-form textarea{
   resize:vertical;
   min-height:80px;
 }
 
-#chat-form button{
+.chat-form button{
   padding:10px;
   border:none;
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
