@@ -1,25 +1,31 @@
+// 要素の取得
 const link = document.querySelector(".chat-help-link");
 const modal = document.querySelector(".chat-modal");
-const close = document.querySelector(".chat-modal-close");
+const closeBtn = document.querySelector(".chat-modal-close"); // closeは予約語に近いので名称変更
 const form = document.querySelector("#chat-form");
+const connectBtn = document.getElementById("connect-wallet");
+const sendBtn = document.getElementById("send-chat");
 
-// 初期値は非表示
-modal.style.display = "none";
-form.style.display = "none";
+// 要素が存在する場合のみ初期化
+if (modal && form) {
+  modal.style.display = "none";
+  form.style.display = "none";
+}
 
 // クリックで開く
-link.addEventListener("click", () => {
-  modal.style.display = "flex";
+link?.addEventListener("click", (e) => {
+  e.preventDefault(); // aタグなどの場合はデフォルト動作を抑制
+  if (modal) modal.style.display = "flex";
 });
 
 // ×ボタンで閉じる
-close.addEventListener("click", () => {
-  modal.style.display = "none";
-  form.style.display = "none";
+closeBtn?.addEventListener("click", () => {
+  if (modal) modal.style.display = "none";
+  if (form) form.style.display = "none";
 });
 
 // 背景クリックで閉じる
-modal.addEventListener("click", (e) => {
+modal?.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
     form.style.display = "none";
@@ -28,37 +34,42 @@ modal.addEventListener("click", (e) => {
 
 // Connect Phantom
 async function connectWallet() {
-  if (window.solana && window.solana.isPhantom) {
+  const solana = window.solana;
+
+  if (solana?.isPhantom) {
     try {
-      const response = await window.solana.connect();
+      const response = await solana.connect();
       const wallet = response.publicKey.toString();
 
       console.log("Connected:", wallet);
 
-      document.getElementById("connect-wallet").innerText =
-        wallet.slice(0, 4) + "..." + wallet.slice(-4);
-      form.style.display = "flex";
+      if (connectBtn) {
+        connectBtn.innerText = wallet.slice(0, 4) + "..." + wallet.slice(-4);
+      }
+      if (form) form.style.display = "flex";
 
     } catch (err) {
-      console.log("User rejected connection");
+      console.warn("User rejected connection", err);
     }
-
   } else {
     alert("Phantom wallet not found. Please install Phantom.");
+    window.open("https://phantom.app/", "_blank");
   }
 }
-document
-  .getElementById("connect-wallet")
-  .addEventListener("click", connectWallet);
+
+connectBtn?.addEventListener("click", connectWallet);
 
 // Send NYANCO
 const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
 
-document.getElementById("send-chat").addEventListener("click", async () => {
+sendBtn?.addEventListener("click", async () => {
+  const nameEl = document.getElementById("chat-name");
+  const messageEl = document.getElementById("chat-message");
+  const amountEl = document.getElementById("chat-amount");
 
-  const name = document.getElementById("chat-name").value || "Anonymous";
-  const message = document.getElementById("chat-message").value.trim();
-  const amountStr = document.getElementById("chat-amount").value.trim();
+  const name = nameEl?.value || "Anonymous";
+  const message = messageEl?.value.trim();
+  const amountStr = amountEl?.value.trim();
 
   // バリデーション
   if (!message) {
@@ -73,8 +84,9 @@ document.getElementById("send-chat").addEventListener("click", async () => {
 
   const amount = Number(amountStr);
 
-  if (isNaN(amount)) {
-    alert("NYANCO amount must be a number.");
+  // 数値チェック（isNaN よりも詳細にチェック）
+  if (Number.isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid NYANCO amount.");
     return;
   }
 
@@ -84,27 +96,25 @@ document.getElementById("send-chat").addEventListener("click", async () => {
   }
 
   // Discord送信用メッセージ
-  const content = `
-💬 NYANCO CHAT
-Name: ${name}
-Message: ${message}
-Amount: ${amount} NYANCO
-`;
+  const content = `💬 **NYANCO CHAT**\n**Name:** ${name}\n**Message:** ${message}\n**Amount:** ${amount} NYANCO`;
 
   try {
-    await fetch(webhookURL, {
+    const response = await fetch(webhookURL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: content })
     });
 
+    if (!response.ok) throw new Error("Webhook post failed");
+
     alert("Chat sent to Discord!");
     
     // 送信後フォームクリア
-    document.getElementById("chat-message").value = "";
-    document.getElementById("chat-amount").value = "";
+    if (messageEl) messageEl.value = "";
+    if (amountEl) amountEl.value = "";
 
   } catch (err) {
     console.error("Failed to send chat:", err);
     alert("Failed to send chat.");
   }
+});
