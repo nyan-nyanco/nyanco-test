@@ -509,17 +509,18 @@ p.center{
   font-size:14px;
 }
 
-#chat-ammount{
+#chat-messeage{
   resize:vertical;
   min-height:80px;
 }
 
-#chat-buutoin{
+#chat-button{
   padding:10px;
   border:none;
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
