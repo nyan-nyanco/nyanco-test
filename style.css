@@ -500,8 +500,8 @@ p.center{
   background:red;
 }
 
-input.chat-form,
-textarea.chat-form{
+#chat-name,
+#chat-message{
   width:100%;
   color:white;
   padding:10px;
@@ -510,17 +510,18 @@ textarea.chat-form{
   font-size:14px;
 }
 
-textarea.chat-form{
+#chat-ammount{
   resize:vertical;
   min-height:80px;
 }
 
-button.chat-form{
+#chat-buutoin{
   padding:10px;
   border:none;
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
