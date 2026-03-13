@@ -492,7 +492,7 @@ p.center{
 .chat-modal-close:hover {
   color: #f87171;
 }
-div.chat-form{
+#chat-form{
   display:none;
   flex-direction:column;
   gap:10px;
@@ -519,6 +519,7 @@ button.chat-form{
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
