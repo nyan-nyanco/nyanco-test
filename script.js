@@ -1,49 +1,42 @@
-  const link = document.querySelector(".chat-help-link");
-  const modal = document.querySelector(".chat-modal");
-  const close = document.querySelector(".chat-modal-close");
-  const form = document.querySelector("#chat-form");
+const link = document.querySelector(".chat-help-link");
+const modal = document.querySelector(".chat-modal");
+const close = document.querySelector(".chat-modal-close");
+const form = document.querySelector("#chat-form");
 
-  // 初期値は非表示
+// 初期値は非表示
+modal.style.display = "none";
+form.style.display = "none";
+
+// クリックで開く
+link.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+// ×ボタンで閉じる
+close.addEventListener("click", () => {
   modal.style.display = "none";
   form.style.display = "none";
+});
 
-  // クリックで開く
-  link.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
-
-  // ×ボタンで閉じる
-  close.addEventListener("click", () => {
-    modal.style.display = "none";
-    form.style.display = "none";
-  });
-
-  // 背景クリックで閉じる
-  modal.addEventListener("click", (e) => {
+// 背景クリックで閉じる
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
     form.style.display = "none";
   }
 });
 
-
-
-
-
-
-  //connect Phantom
-  async function connectWallet() {
-
+// Connect Phantom
+async function connectWallet() {
   if (window.solana && window.solana.isPhantom) {
     try {
-
       const response = await window.solana.connect();
       const wallet = response.publicKey.toString();
 
       console.log("Connected:", wallet);
 
       document.getElementById("connect-wallet").innerText =
-        wallet.slice(0,4) + "..." + wallet.slice(-4);
+        wallet.slice(0, 4) + "..." + wallet.slice(-4);
       form.style.display = "flex";
 
     } catch (err) {
@@ -53,14 +46,13 @@
   } else {
     alert("Phantom wallet not found. Please install Phantom.");
   }
-
 }
 document
   .getElementById("connect-wallet")
   .addEventListener("click", connectWallet);
 
-//send  NAYNCO
-const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks"; // Discord Webhook
+// Send NYANCO
+const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
 
 document.getElementById("send-chat").addEventListener("click", async () => {
 
