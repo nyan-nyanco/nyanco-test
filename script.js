@@ -5,7 +5,7 @@
 
   // 初期値は非表示
   modal.style.display = "none";
-  form.style.display = "none";
+ 
 
   // クリックで開く
   link.addEventListener("click", () => {
