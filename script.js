@@ -38,7 +38,7 @@ const link = document.querySelector(".chat-help-link");
 
       document.getElementById("connect-wallet").innerText =
         wallet.slice(0,4) + "..." + wallet.slice(-4);
-      document.getElementById("chat-form").style.display = "block";
+      document.getElementById("chat-form").style.display = "flex";
 
     } catch (err) {
       console.log("User rejected connection");
