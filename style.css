@@ -515,12 +515,13 @@ p.center{
   min-height:80px;
 }
 
-#chat-button{
+#send-chat{
   padding:10px;
   border:none;
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
