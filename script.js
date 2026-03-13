@@ -60,7 +60,7 @@ document
   .addEventListener("click", connectWallet);
 
 //send  NAYNCO
-const webhookURL = "YOUR_WEBHOOK_URL";
+const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
 
 document.querySelector("#send-chat").addEventListener("click", async () => {
 
