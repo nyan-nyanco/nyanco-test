@@ -59,3 +59,31 @@ document
   .getElementById("connect-wallet")
   .addEventListener("click", connectWallet);
 
+//send  NAYNCO
+const webhookURL = "YOUR_WEBHOOK_URL";
+
+document.querySelector("#send-chat").addEventListener("click", async () => {
+
+  const name = document.querySelector("#chat-name").value || "Anonymous";
+  const message = document.querySelector("#chat-message").value;
+  const amount = document.querySelector("#chat-amount").value;
+
+  const content =
+`💬 NYANCO CHAT
+
+Name: ${name}
+Message: ${message}
+Amount: ${amount} NYANCO`;
+
+  await fetch(webhookURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      content: content
+    })
+  });
+
+  alert("Chat sent!");
+});
