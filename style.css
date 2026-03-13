@@ -503,7 +503,6 @@ p.center{
 #chat-message,
 #chat-amount{
   width:100%;
-  color:white;
   padding:10px;
   border-radius:8px;
   border:1px solid #ccc;
@@ -521,6 +520,7 @@ p.center{
   border-radius:8px;
   cursor:pointer;
 }
+
 
 
 
