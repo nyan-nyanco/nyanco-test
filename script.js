@@ -60,30 +60,63 @@ document
   .addEventListener("click", connectWallet);
 
 //send  NAYNCO
-const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
+const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks"; // Discord Webhook
 
-document.querySelector("#send-chat").addEventListener("click", async () => {
+document.getElementById("send-chat").addEventListener("click", async () => {
 
-  const name = document.querySelector("#chat-name").value || "Anonymous";
-  const message = document.querySelector("#chat-message").value;
-  const amount = document.querySelector("#chat-amount").value;
+  const name = document.getElementById("chat-name").value || "Anonymous";
+  const message = document.getElementById("chat-message").value.trim();
+  const amountStr = document.getElementById("chat-amount").value.trim();
 
-  const content =
-`💬 NYANCO CHAT
+  // バリデーション
+  if (!message) {
+    alert("Please enter a message.");
+    return;
+  }
 
+  if (!amountStr) {
+    alert("Please enter an amount of NYANCO.");
+    return;
+  }
+
+  const amount = Number(amountStr);
+
+  if (isNaN(amount)) {
+    alert("NYANCO amount must be a number.");
+    return;
+  }
+
+  if (amount < 100) {
+    alert("Minimum NYANCO amount is 100.");
+    return;
+  }
+
+  // Discord送信用メッセージ
+  const content = `
+💬 NYANCO CHAT
 Name: ${name}
 Message: ${message}
-Amount: ${amount} NYANCO`;
+Amount: ${amount} NYANCO
+`;
 
-  await fetch(webhookURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      content: content
-    })
-  });
+  try {
+    await fetch(webhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: content })
+    });
 
+    alert("Chat sent to Discord!");
+    
+    // 送信後フォームクリア
+    document.getElementById("chat-message").value = "";
+    document.getElementById("chat-amount").value = "";
+
+  } catch (err) {
+    console.error("Failed to send chat:", err);
+    alert("Failed to send chat.");
+  }
+
+});
   alert("Chat sent!");
 });
