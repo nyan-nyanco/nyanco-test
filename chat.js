@@ -182,7 +182,7 @@ sendBtn?.addEventListener(
       );
 
     const amountRaw =
-      amount * (10 ** DECIMALS);
+        Math.floor(amount * (10 ** DECIMALS));
 
     const tx =
       new solanaWeb3.Transaction();
