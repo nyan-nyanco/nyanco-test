@@ -35,7 +35,7 @@ const sendBtn =
 messageInput.disabled = true;
 messageInput.maxLength = 0;
 counter.innerText = "Enter NYANCO amount first";
-name.disabled = true;
+nameInput.disabled = true;
 
 
 // =============================
