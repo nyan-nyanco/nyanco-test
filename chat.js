@@ -35,6 +35,7 @@ const sendBtn =
 messageInput.disabled = true;
 messageInput.maxLength = 0;
 counter.innerText = "Enter NYANCO amount first";
+name.disabled = true;
 
 
 // =============================
@@ -58,9 +59,10 @@ amountInput.addEventListener("input", () => {
 
   }
 
-  const maxChars = Math.floor(amount);
+  const maxChars = Math.floor(amount*0.1);
 
   messageInput.disabled = false;
+  nameInput.disabled = false;
   messageInput.maxLength = maxChars;
 
   counter.innerText = `0 / ${maxChars}`;
