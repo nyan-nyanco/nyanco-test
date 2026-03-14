@@ -100,14 +100,6 @@ sendBtn?.addEventListener(
   "click",
   async () => {
 　　　
-　const name = nameInput.value || "Anonymous";
-
-　if (name.length > 20) {
-
- 　 alert("Name must be 20 characters or less.");
- 　 return;
-
-　}
   const provider = window.solana;
 
   if (!provider || !provider.isPhantom) {
@@ -126,6 +118,13 @@ sendBtn?.addEventListener(
 
   const name =
     nameInput.value || "Anonymous";
+
+  if (name.length > 20) {
+
+ 　 alert("Name must be 20 characters or less.");
+ 　 return;
+
+　}
 
   if (amount < 100) {
 
