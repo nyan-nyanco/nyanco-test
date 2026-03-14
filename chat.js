@@ -116,6 +116,15 @@ sendBtn?.addEventListener(
   const message =
     messageInput.value.trim();
 
+  messageInput.addEventListener("input", () => {
+
+  const max = messageInput.maxLength;
+  const len = messageInput.value.length;
+
+  counter.innerText = `${len} / ${max}`;
+
+  });
+
   const name =
     nameInput.value || "Anonymous";
 
