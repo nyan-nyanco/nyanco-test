@@ -36,6 +36,7 @@ messageInput.disabled = true;
 messageInput.maxLength = 0;
 counter.innerText = "Enter NYANCO amount first";
 nameInput.disabled = true;
+nameInput.maxLength = 0;
 
 
 // =============================
