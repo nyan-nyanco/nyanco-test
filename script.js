@@ -58,7 +58,7 @@ async function connectWallet() {
 }
 
 connectBtn?.addEventListener("click", connectWallet);
-
+/*
 // Send NYANCO
 const webhookURL = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
 
