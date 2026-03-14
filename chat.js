@@ -17,6 +17,10 @@ const connection =
 // ELEMENTS
 // =============================
 
+messageInput.disabled = true;
+messageInput.maxLength = 0;
+counter.innerText = "Enter NYANCO amount first";
+
 const amountInput =
   document.getElementById("chat-amount");
 
@@ -36,13 +40,16 @@ const sendBtn =
 // REALTIME CHAR LIMIT
 // =============================
 
-amountInput?.addEventListener("input", () => {
+amountInput.addEventListener("input", () => {
 
   const amount = Number(amountInput.value);
 
   if (Number.isNaN(amount) || amount < 100) {
 
+    messageInput.disabled = true;
+    messageInput.value = "";
     messageInput.maxLength = 0;
+
     counter.innerText = "Minimum 100 NYANCO";
 
     return;
@@ -51,19 +58,10 @@ amountInput?.addEventListener("input", () => {
 
   const maxChars = Math.floor(amount);
 
+  messageInput.disabled = false;
   messageInput.maxLength = maxChars;
 
-  counter.innerText =
-    `0 / ${maxChars}`;
-
-});
-
-messageInput?.addEventListener("input", () => {
-
-  counter.innerText =
-    messageInput.value.length +
-    " / " +
-    messageInput.maxLength;
+  counter.innerText = `0 / ${maxChars}`;
 
 });
 
