@@ -64,7 +64,7 @@ amountInput.addEventListener("input", () => {
   messageInput.disabled = false;
   nameInput.disabled = false;
   messageInput.maxLength = maxChars;
-  name.maxLength = 20;
+  nameInput.maxLength = 20;
   
 
   counter.innerText = `0 / ${maxChars}`;
