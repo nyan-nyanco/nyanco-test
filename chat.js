@@ -4,27 +4,39 @@
 
 const NYANCO_MINT = "YOUR_MINT_ADDRESS";
 const TREASURY = "YOUR_TREASURY_WALLET";
-const DISCORD_WEBHOOK = "YOUR_DISCORD_WEBHOOK";
+const DISCORD_WEBHOOK = "YOUR_WEBHOOK";
 
-const connection = new solanaWeb3.Connection(
-  "https://api.mainnet-beta.solana.com"
-);
+const DECIMALS = 6;
+
+const connection =
+  new solanaWeb3.Connection(
+    "https://api.mainnet-beta.solana.com"
+  );
 
 // =============================
 // ELEMENTS
 // =============================
 
-const amountInput = document.getElementById("chat-amount");
-const messageInput = document.getElementById("chat-message");
-const nameInput = document.getElementById("chat-name");
-const counter = document.getElementById("char-counter");
-const sendBtn = document.getElementById("send-chat");
+const amountInput =
+  document.getElementById("chat-amount");
+
+const messageInput =
+  document.getElementById("chat-message");
+
+const nameInput =
+  document.getElementById("chat-name");
+
+const counter =
+  document.getElementById("char-counter");
+
+const sendBtn =
+  document.getElementById("send-chat");
 
 // =============================
 // REALTIME CHAR LIMIT
 // =============================
 
-amountInput.addEventListener("input", () => {
+amountInput?.addEventListener("input", () => {
 
   const amount = Number(amountInput.value);
 
@@ -41,11 +53,12 @@ amountInput.addEventListener("input", () => {
 
   messageInput.maxLength = maxChars;
 
-  counter.innerText = `0 / ${maxChars}`;
+  counter.innerText =
+    `0 / ${maxChars}`;
 
 });
 
-messageInput.addEventListener("input", () => {
+messageInput?.addEventListener("input", () => {
 
   counter.innerText =
     messageInput.value.length +
@@ -62,9 +75,10 @@ async function getTokenPrice() {
 
   try {
 
-    const res = await fetch(
-      `https://price.jup.ag/v4/price?ids=${NYANCO_MINT}`
-    );
+    const res =
+      await fetch(
+        `https://price.jup.ag/v4/price?ids=${NYANCO_MINT}`
+      );
 
     const data = await res.json();
 
@@ -79,37 +93,45 @@ async function getTokenPrice() {
 }
 
 // =============================
-// SEND BUTTON
+// SEND CHAT
 // =============================
 
-sendBtn.addEventListener("click", async () => {
+sendBtn?.addEventListener(
+  "click",
+  async () => {
 
   const provider = window.solana;
 
   if (!provider || !provider.isPhantom) {
 
-    alert("Install Phantom wallet");
+    alert("Install Phantom");
 
     return;
 
   }
 
-  const amount = Number(amountInput.value);
-  const message = messageInput.value.trim();
-  const name = nameInput.value || "Anonymous";
+  const amount =
+    Number(amountInput.value);
+
+  const message =
+    messageInput.value.trim();
+
+  const name =
+    nameInput.value || "Anonymous";
 
   if (amount < 100) {
 
     alert("Minimum 100 NYANCO");
-
     return;
 
   }
 
-  if (message.length > messageInput.maxLength) {
+  if (
+    message.length >
+    messageInput.maxLength
+  ) {
 
     alert("Message too long");
-
     return;
 
   }
@@ -118,10 +140,18 @@ sendBtn.addEventListener("click", async () => {
 
     await provider.connect();
 
-    const wallet = provider.publicKey;
+    const wallet =
+      provider.publicKey;
 
-    const mint = new solanaWeb3.PublicKey(NYANCO_MINT);
-    const treasury = new solanaWeb3.PublicKey(TREASURY);
+    const mint =
+      new solanaWeb3.PublicKey(
+        NYANCO_MINT
+      );
+
+    const treasury =
+      new solanaWeb3.PublicKey(
+        TREASURY
+      );
 
     const fromATA =
       await splToken.getAssociatedTokenAddress(
@@ -135,21 +165,31 @@ sendBtn.addEventListener("click", async () => {
         treasury
       );
 
-    const tx = new solanaWeb3.Transaction();
+    const amountRaw =
+      amount * (10 ** DECIMALS);
+
+    const tx =
+      new solanaWeb3.Transaction();
 
     tx.add(
+
       splToken.createTransferInstruction(
+
         fromATA,
         toATA,
         wallet,
-        amount
+        amountRaw
+
       )
+
     );
 
     tx.feePayer = wallet;
 
     tx.recentBlockhash =
-      (await connection.getLatestBlockhash()).blockhash;
+      (
+        await connection.getLatestBlockhash()
+      ).blockhash;
 
     const signed =
       await provider.signTransaction(tx);
@@ -159,26 +199,32 @@ sendBtn.addEventListener("click", async () => {
         signed.serialize()
       );
 
-    await connection.confirmTransaction(signature);
+    await connection.confirmTransaction(
+      signature
+    );
 
     console.log("TX:", signature);
 
     // =============================
-    // PRICE CALCULATION
+    // PRICE
     // =============================
 
-    const price = await getTokenPrice();
+    const price =
+      await getTokenPrice();
 
-    const value = amount * price;
+    const value =
+      amount * price;
 
     // =============================
     // DISCORD MESSAGE
     // =============================
 
     const content = `
+
 💬 NYANCO CHAT
 
-Name: ${name}
+Name:
+${name}
 
 Message:
 ${message}
@@ -197,18 +243,21 @@ ${wallet}
 
 TX:
 https://solscan.io/tx/${signature}
+
 `;
 
-    await fetch(DISCORD_WEBHOOK, {
+    await fetch(
+      DISCORD_WEBHOOK,
+      {
 
-      method: "POST",
+      method:"POST",
 
-      headers: {
-        "Content-Type": "application/json"
+      headers:{
+        "Content-Type":"application/json"
       },
 
-      body: JSON.stringify({
-        content: content
+      body:JSON.stringify({
+        content:content
       })
 
     });
@@ -218,7 +267,9 @@ https://solscan.io/tx/${signature}
     messageInput.value = "";
     amountInput.value = "";
 
-  } catch (err) {
+  }
+
+  catch(err){
 
     console.error(err);
 
