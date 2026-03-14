@@ -50,6 +50,7 @@ amountInput.addEventListener("input", () => {
     messageInput.disabled = true;
     messageInput.value = "";
     messageInput.maxLength = 0;
+    nameInput.disabled = true;
 
     counter.innerText = "Minimum 100 NYANCO";
 
