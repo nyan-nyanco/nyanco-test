@@ -96,6 +96,15 @@ async function getTokenPrice() {
 // SEND CHAT
 // =============================
 
+const name = nameInput.value || "Anonymous";
+
+if (name.length > 20) {
+
+  alert("Name must be 20 characters or less.");
+  return;
+
+}
+
 sendBtn?.addEventListener(
   "click",
   async () => {
