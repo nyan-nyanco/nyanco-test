@@ -17,10 +17,6 @@ const connection =
 // ELEMENTS
 // =============================
 
-messageInput.disabled = true;
-messageInput.maxLength = 0;
-counter.innerText = "Enter NYANCO amount first";
-
 const amountInput =
   document.getElementById("chat-amount");
 
@@ -35,6 +31,11 @@ const counter =
 
 const sendBtn =
   document.getElementById("send-chat");
+
+messageInput.disabled = true;
+messageInput.maxLength = 0;
+counter.innerText = "Enter NYANCO amount first";
+
 
 // =============================
 // REALTIME CHAR LIMIT
