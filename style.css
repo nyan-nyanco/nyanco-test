@@ -61,7 +61,9 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  width: max-content;
+
+  width: 100%;
+  max-width: 100%;
 }
 
 
