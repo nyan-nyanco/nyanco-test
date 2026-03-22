@@ -38,7 +38,8 @@ h1 {
 }
 @media (max-width: 768px) {
   .section-title {
-    display: inline-block;
+    position: relative;
+    display: flex;
     align-items: center;
   }
 
