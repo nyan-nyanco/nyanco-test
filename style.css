@@ -301,7 +301,7 @@ footer {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  height: 720px; /* ★ここ重要：固定高さ */
+  height: 100px; /* ★ここ重要：固定高さ */
 }
 }
 
