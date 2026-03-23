@@ -295,14 +295,21 @@ footer {
   height: 360px; /* ★ここ重要：固定高さ */
 }
 @media (max-width: 768px) {
- .stream-chat {
+  .stream-chat {
+   flex: 1;
+   background: #020617;
+   border-radius: 12px;
+   display: flex;
+   flex-direction: column;
+   height: 360px; /* ★ここ重要：固定高さ */
+  }
+  .chat-messages {
+  padding: 10px;
+  height: 360px;
   flex: 1;
-  background: #020617;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  height: 100px; /* ★ここ重要：固定高さ */
-}
+  overflow-y: auto;
+  font-size: 0.8rem;
+  }
 }
 
 .chat-header {
