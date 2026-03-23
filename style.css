@@ -216,18 +216,11 @@ footer {
   z-index: 5;
 }
 @media (max-width: 768px) {
-  #streamComments{
-  position:absolute;
-  bottom:10%;
-  left:18%;
-  width:50%;
-
-  display:flex;
-  flex-direction:column;
-
-  z-index: 5;
+  
+  
 }
-}
+
+
 /* コメント本体 */
 #streamComments p{
   position:relative;
