@@ -54,7 +54,7 @@ h1 {
   .title-icon {
     width: 64px;
     height: 64px;
-    margin: 0 auto auto 0;
+    margin: auto auto auto 0;
     border-radius: 50%;
     image-rendering: pixelated;
   }
