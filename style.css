@@ -296,12 +296,13 @@ footer {
 }
 @media (max-width: 768px) {
   .stream-chat {
-   flex: 1;
+   height: auto;
+   min-height: 200px;
+   flex: none;
    background: #020617;
    border-radius: 12px;
    display: flex;
    flex-direction: column;
-   height: 360px; /* ★ここ重要：固定高さ */
   }
   .chat-messages {
   padding: 10px;
