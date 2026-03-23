@@ -130,6 +130,14 @@ footer {
 .stream-box {
   padding: 16px;
 }
+@media (max-width: 768px) {
+  .stream-box {
+    padding: 16px;
+    item-align: flex;
+  }
+
+}
+
 
 .stream-layout {
   display: flex;
