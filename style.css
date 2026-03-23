@@ -133,6 +133,10 @@ footer {
   .stream-box {
     padding: 16px;
   }
+  .stream-layout {
+    flex-direction: column;
+  }
+
 
 }
 
