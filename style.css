@@ -56,6 +56,7 @@ h1 {
   .title-icon {
     width: 64px;
     height: 64px;
+    margin-left: 0px;
     border-radius: 50%;
     image-rendering: pixelated;
   }
@@ -133,7 +134,7 @@ footer {
 @media (max-width: 768px) {
   .stream-box {
     padding: 16px;
-    item-align: flex;
+    display: flex;
   }
 
 }
