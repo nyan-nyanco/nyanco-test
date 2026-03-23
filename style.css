@@ -136,6 +136,10 @@ footer {
   .stream-layout {
     flex-direction: column;
   }
+  .stream-video {
+    aspect-ratio: auto;
+    height: 260px;
+  }
 
 
 }
