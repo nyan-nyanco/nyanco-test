@@ -137,8 +137,7 @@ footer {
     flex-direction: column;
   }
   .stream-video {
-    aspect-ratio: auto;
-    height: 260px;
+    
   }
 
 }
@@ -295,7 +294,16 @@ footer {
   flex-direction: column;
   height: 360px; /* ★ここ重要：固定高さ */
 }
-
+@media (max-width: 768px) {
+ .stream-chat {
+  flex: 1;
+  background: #020617;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 720px; /* ★ここ重要：固定高さ */
+}
+}
 
 .chat-header {
   padding: 10px;
