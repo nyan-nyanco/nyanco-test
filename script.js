@@ -45,7 +45,7 @@ modal?.addEventListener("click", (e) => {
 // =============================
 // PHANTOM CONNECT
 // =============================
-
+/*
 async function connectWallet() {
 
   const provider = window.solana;
@@ -86,3 +86,45 @@ async function connectWallet() {
 }
 
 connectBtn?.addEventListener("click", connectWallet);
+*/
+async function connectWallet() {
+  const provider = window.solana;
+
+  // 1. Phantomがインストールされているか、またはモバイルブラウザ内かチェック
+  if (!provider?.isPhantom) {
+    // モバイル端末（iOS/Android）か判定
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Phantomのアプリ内ブラウザで開かせるためのディープリンク
+      // あなたのサイトのURL（例: https://example.com）をエンコードして指定
+      const appUrl = window.location.href.split('#')[0];
+      const encodedUrl = encodeURIComponent(appUrl);
+      const phantomLink = `https://phantom.app/ul/browse/${encodedUrl}?ref=${encodedUrl}`;
+      
+      window.open(phantomLink, "_blank");
+      return;
+    } else {
+      alert("Install Phantom Wallet");
+      window.open("https://phantom.app/", "_blank");
+      return;
+    }
+  }
+
+  try {
+    // すでにアプリ内ブラウザにいる場合は、通常のconnectが動作します
+    const response = await provider.connect();
+    const wallet = response.publicKey.toString();
+
+    console.log("Connected:", wallet);
+
+    if (connectBtn) {
+      connectBtn.innerText = wallet.slice(0, 4) + "..." + wallet.slice(-4);
+    }
+    if (form) form.style.display = "flex";
+
+  } catch (err) {
+    console.warn("Connection rejected", err);
+  }
+}
+
