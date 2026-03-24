@@ -218,6 +218,7 @@ footer {
 @media (max-width: 768px) {
   #streamComments{
   position:absolute;
+  top: 30%;
   bottom:25%;
   left:18%;
   width:50%;
