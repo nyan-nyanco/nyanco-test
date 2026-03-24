@@ -45,7 +45,7 @@ modal?.addEventListener("click", (e) => {
 // =============================
 // PHANTOM CONNECT
 // =============================
-
+/*
 async function connectWallet() {
 
   const provider = window.solana;
@@ -85,8 +85,8 @@ async function connectWallet() {
 
 }
 connectBtn?.addEventListener("click", connectWallet);
+*/
 
-/*
 async function connectWallet() {
   const provider = window.solana;
 
@@ -127,6 +127,8 @@ async function connectWallet() {
     console.warn("Connection rejected", err);
   }
 }
-*/
+
+connectBtn?.addEventListener("click", connectWallet);
+
 
 
