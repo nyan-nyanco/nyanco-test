@@ -45,14 +45,14 @@ modal?.addEventListener("click", (e) => {
 // =============================
 // PHANTOM CONNECT
 // =============================
-/*
+
 async function connectWallet() {
 
   const provider = window.solana;
 
   if (!provider || !provider.isPhantom) {
 
-    alert("Install Phantom Wallet");
+    alert("Install Phantom Wallet or open this site in phantom");
     window.open("https://phantom.app/", "_blank");
 
     return;
@@ -84,8 +84,9 @@ async function connectWallet() {
   }
 
 }
-*/
+connectBtn?.addEventListener("click", connectWallet);
 
+/*
 async function connectWallet() {
   const provider = window.solana;
 
@@ -126,6 +127,6 @@ async function connectWallet() {
     console.warn("Connection rejected", err);
   }
 }
+*/
 
-connectBtn?.addEventListener("click", connectWallet);
 
