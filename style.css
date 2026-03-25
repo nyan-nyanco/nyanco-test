@@ -232,13 +232,13 @@ footer {
   position:relative;
   background:#ffffff;
   color:#555;
-  padding:0.5px 4px;
+  padding:0.2px 4px;
   border-radius:30px;
   font-family:"Kosugi Maru","M PLUS Rounded 1c",sans-serif;
   font-size:5px;
   max-width:100%;
-  line-height:1.0;
-  margin: 2px;
+  line-height:0.5;
+  margin: 1px;
 
   /* 雲っぽい柔らかい影 */
   box-shadow:
