@@ -19,6 +19,8 @@ link?.addEventListener("click", (e) => {
   e.preventDefault();
 
   if (modal) modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
 
 });
 
@@ -27,6 +29,7 @@ closeBtn?.addEventListener("click", () => {
 
   if (modal) modal.style.display = "none";
   if (form) form.style.display = "none";
+  document.body.style.overflow = "";
 
 });
 
@@ -37,6 +40,7 @@ modal?.addEventListener("click", (e) => {
 
     modal.style.display = "none";
     form.style.display = "none";
+    document.body.style.overflow = "";
 
   }
 
