@@ -528,18 +528,18 @@ footer {
   align-items: center;
 }
 @media (max-width: 768px){
-  .chat-modal {
-  display: none; /* ←最初は非表示 */
-  position: fixed;
-  z-index: 999999;
-  left: 5%;
-  top: 20%;
+  .chat-modal-content {
+  position: relative; /* closeボタン用 */
+  background-color: rgba(0,0,0,0.8);
+  padding: 20px 30px;
+  border-radius: 12px;
+  color: #f1f5f9;
   width: 90%;
-  height: 50%;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
+  height: 80%;
+  max-width: 600px;
+  /*text-align: center;*/
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
 }
 
 
