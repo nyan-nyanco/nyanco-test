@@ -4,7 +4,7 @@
 
 const NYANCO_MINT = "HXVAWuvZaqrgUjjtJuGizbBkqBPb6iv9MHT4eB5Ypump";
 const TREASURY = "GJC8b7x8fCfTPMtiJRMDravSHXfjdsiwnv5c39JSM1Et";
-const DISCORD_WEBHOOK = "https://discord.com/channels/1313823181756436550/1481915825202921522";
+const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1481916009500770397/cRpvDH6O9Qbpx-RjswuqCr2HuPj6rGabCL25xNW93ls9sRtI783yNHMd2p9mQuJUI1Ks";
 
 const DECIMALS = 6;
 
