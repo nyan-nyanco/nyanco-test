@@ -7,6 +7,7 @@ const TREASURY = "GJC8b7x8fCfTPMtiJRMDravSHXfjdsiwnv5c39JSM1Et";
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/xxxxx"; // ←自分のに
 
 const DECIMALS = 6;
+const splToken = window.solanaSplToken;
 
 const connection =
   new solanaWeb3.Connection(
