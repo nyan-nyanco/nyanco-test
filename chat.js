@@ -10,7 +10,7 @@ const DECIMALS = 6;
 const splToken = window.solanaSplToken;
 
 if (!splToken) {
-    console.error("SPL Token library is not loaded!");
+    alert("SPL Token library is not loaded!");
 }
 const connection =
   new solanaWeb3.Connection(
