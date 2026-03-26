@@ -10,7 +10,7 @@ const DECIMALS = 6;
 
 const connection =
   new solanaWeb3.Connection(
-    "https://api.mainnet-beta.solana.com"
+    "https://mainnet.helius-rpc.com/?api-key=0f522380-8021-41c8-af33-54396cbe75ee"
   );
 
 // =============================
