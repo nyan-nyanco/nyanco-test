@@ -222,7 +222,7 @@ footer {
   bottom: 25%;
   left:18%;
   width:50%;
-
+　justify-content:flex-end; /* ← 下から積む */
   display:flex;
   flex-direction:column;
 
