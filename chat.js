@@ -9,6 +9,9 @@ const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/xxxxx"; // ←自分�
 const DECIMALS = 6;
 const splToken = window.solanaSplToken;
 
+if (!splToken) {
+    console.error("SPL Token library is not loaded!");
+}
 const connection =
   new solanaWeb3.Connection(
     "https://mainnet.helius-rpc.com/?api-key=0f522380-8021-41c8-af33-54396cbe75ee"
