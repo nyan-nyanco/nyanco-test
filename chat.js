@@ -1,4 +1,4 @@
-
+alert("1");
 // =============================
 // SETTINGS
 // =============================
@@ -90,7 +90,7 @@ async function findATA(wallet, mint) {
   );
   return address;
 }
-
+alert("before send chat");
 // =============================
 // SEND CHAT
 // =============================
