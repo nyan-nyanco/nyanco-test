@@ -1,6 +1,4 @@
-<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
 
-<script>
 // =============================
 // SETTINGS
 // =============================
@@ -211,4 +209,3 @@ https://solscan.io/tx/${signature}`;
     alert(err.message || "Transaction failed");
   }
 });
-</script>
