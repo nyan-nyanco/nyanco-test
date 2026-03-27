@@ -9,9 +9,8 @@ const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/xxxxx";
 const DECIMALS = 6;
 
 const TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
-  "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  "TokenzQdBNbLqP5VEhdkAS6EPF7w9E1x7hZt8Z8h6f7g"
 );
-
 const ASSOCIATED_TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
   "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
 );
