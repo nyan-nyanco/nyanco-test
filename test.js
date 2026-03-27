@@ -39,7 +39,7 @@ try {
 }
 
 try {
-  const tokenProgram = new solanaWeb3.PublicKey("TokenzQdBNbLqP5VEhdkAS6EPF7w9E1x7hZt8Z8h6f7g");
+  const tokenProgram = new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
   alert("TOKEN PROGRAM OK");
 } catch (e) {
   alert("TOKEN PROGRAM NG");
