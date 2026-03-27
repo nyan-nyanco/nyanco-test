@@ -1,5 +1,21 @@
 alert("START");
+const NYANCO_MINT = "HXVAWuvZaqrgUjjtJuGizbBkqBPb6iv9MHT4eB5Ypump";
+const TREASURY = "GJC8b7x8fCfTPMtiJRMDravSHXfjdsiwnv5c39JSM1Et";
+const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/xxxxx";
 
+const DECIMALS = 6;
+
+const TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
+  "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+);
+const ASSOCIATED_TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
+  "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+);
+
+const connection = new solanaWeb3.Connection(
+  "https://mainnet.helius-rpc.com/?api-key=0f522380-8021-41c8-af33-54396cbe75ee"
+);
+alert("before element");
 // =============================
 // 基本チェック
 // =============================
