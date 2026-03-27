@@ -1,4 +1,3 @@
-alert("1");
 // =============================
 // SETTINGS
 // =============================
@@ -18,7 +17,7 @@ const ASSOCIATED_TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
 const connection = new solanaWeb3.Connection(
   "https://api.mainnet-beta.solana.com"
 );
-
+alert("before element");
 // =============================
 // ELEMENTS
 // =============================
@@ -27,13 +26,13 @@ const messageInput = document.getElementById("chat-message");
 const nameInput = document.getElementById("chat-name");
 const counter = document.getElementById("char-counter");
 const sendBtn = document.getElementById("send-chat");
-
+alert("before 初期状態");
 // 初期状態
 messageInput.disabled = true;
 messageInput.maxLength = 0;
 counter.innerText = "Enter NYANCO amount first";
 nameInput.disabled = true;
-
+alert("before input control");
 // =============================
 // INPUT CONTROL
 // =============================
@@ -62,7 +61,7 @@ amountInput.addEventListener("input", () => {
 messageInput.addEventListener("input", () => {
   counter.innerText = `${messageInput.value.length} / ${messageInput.maxLength}`;
 });
-
+alert("before price fetch");
 // =============================
 // PRICE FETCH
 // =============================
