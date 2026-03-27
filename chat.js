@@ -17,7 +17,7 @@ const ASSOCIATED_TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
 );
 
 const connection = new solanaWeb3.Connection(
-  "https://mainnet.helius-rpc.com/?api-key=0f522380-8021-41c8-af33-54396cbe75ee"
+  "https://api.mainnet-beta.solana.com"
 );
 
 // =============================
