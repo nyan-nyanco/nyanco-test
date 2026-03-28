@@ -583,8 +583,8 @@ p.center{
   border:1px solid #ccc;
   font-size:14px;
 }
-
-#chat-messeage{
+/*↓chat-messeageになってた。js大丈夫かな*/
+#chat-message{
   resize:vertical;
   min-height:80px;
 }
