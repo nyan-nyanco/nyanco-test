@@ -216,35 +216,9 @@ footer {
   z-index: 5;
 }
 @media (max-width: 768px) {
-  #streamComments{
-  position:absolute;
-  top: 25%;
-  bottom: 25%;
-  left:18%;
-  width:50%;
-　justify-content:flex-end; /* ← 下から積む */
-  display:flex;
-  flex-direction:column;
-
-  z-index: 5;
-}
-  #streamComments p{
-  position:relative;
-  background:#ffffff;
-  color:#555;
-  padding:0.2px 4px;
-  border-radius:30px;
-  font-family:"Kosugi Maru","M PLUS Rounded 1c",sans-serif;
-  font-size:5px;
-  max-width:100%;
-  line-height:0.5;
-  margin: 1px;
-
-  /* 雲っぽい柔らかい影 */
-  box-shadow:
-    0 3px 8px rgba(0,0,0,0.5),
-    0 0 6px rgba(255,255,255,0.8);
-}
+  #last-user p{
+    display:none;
+  }
 }
 
 
