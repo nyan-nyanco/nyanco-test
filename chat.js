@@ -17,7 +17,7 @@ const ASSOCIATED_TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
 const connection = new solanaWeb3.Connection(
   "https://mainnet.helius-rpc.com/?api-key=0f522380-8021-41c8-af33-54396cbe75ee"
 );
-alert("before element");
+//alert("before element");
 // =============================
 // ELEMENTS
 // =============================
@@ -26,13 +26,13 @@ const messageInput = document.getElementById("chat-message");
 const nameInput = document.getElementById("chat-name");
 const counter = document.getElementById("char-counter");
 const sendBtn = document.getElementById("send-chat");
-alert("before 初期状態");
+//alert("before 初期状態");
 // 初期状態
 messageInput.disabled = true;
 messageInput.maxLength = 0;
 counter.innerText = "Enter NYANCO amount first";
 nameInput.disabled = true;
-alert("before input control");
+//alert("before input control");
 // =============================
 // INPUT CONTROL
 // =============================
@@ -61,7 +61,7 @@ amountInput.addEventListener("input", () => {
 messageInput.addEventListener("input", () => {
   counter.innerText = `${messageInput.value.length} / ${messageInput.maxLength}`;
 });
-alert("before price fetch");
+//alert("before price fetch");
 // =============================
 // PRICE FETCH
 // =============================
@@ -89,7 +89,7 @@ async function findATA(wallet, mint) {
   );
   return address;
 }
-alert("before send chat");
+//alert("before send chat");
 // =============================
 // SEND CHAT
 // =============================
