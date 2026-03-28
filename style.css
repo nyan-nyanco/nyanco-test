@@ -216,7 +216,7 @@ footer {
   z-index: 5;
 }
 @media (max-width: 768px) {
-  
+  /*
 #streamComments{
   position:absolute;
   top: 25%;
@@ -226,7 +226,7 @@ footer {
   flex-direction:column;
 
   z-index: 5;
-}
+}*/
   #last-user p{
     display:none;
   }
