@@ -216,18 +216,19 @@ footer {
   z-index: 5;
 }
 @media (max-width: 768px) {
-  /*
+  
 #streamComments{
   position:absolute;
   top: 25%;
+  bottom: 25%;
   left:18%;
   width:50%;
 
   flex-direction:column;
 
   z-index: 5;
-}*/
-  #last-user p{
+}
+  #last-user{
     display:none;
   }
 }
