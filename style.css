@@ -224,7 +224,6 @@ footer {
   left:18%;
   width:50%;
 
-  display:flex;
   flex-direction:column;
 
   z-index: 5;
